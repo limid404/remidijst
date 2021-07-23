@@ -6,7 +6,7 @@ const model = require('./sdk/model.js');
 
 // Bot Setting
 const TelegramBot = require('node-telegram-bot-api');
-const token = '1733547356:AAEOX7oG_z09vS34M-DUHOm5YCPsXYDXohg'
+const token = '1928251630:AAHgX5MoSBZ3F0PACZyNucztqP2PT_eGUNA'
 const bot = new TelegramBot(token, {polling: true});
 
 
@@ -16,9 +16,9 @@ bot.onText(/\/start/, (msg) => {
     state = 0;
     bot.sendMessage(
         msg.chat.id,
-        `Selamat datang di BOT prediksi Tegangan & Daya menggunakan Deep Neural Network.
+        `Selamat datang di BOT prediksi.
         \nSilahkan pilih menu dibawah ini:\n
-        (/1) Prediksi dengan Input i|r
+        (/1) Prediksi dengan Input x1|x2|x3|x4
         (/2) Batal`
     ); 
     bot.sendMessage(msg.chat.id, "Pilihan Anda: ");    
@@ -28,8 +28,8 @@ bot.onText(/\/1/, (msg) => {
     state = 1;
     bot.sendMessage(
         msg.chat.id, 
-        `Masukan nilai i dan r dengan format i|r \n
-        contohnya: 12|36`
+        `Masukan nilai x1, x2, x3 dan x4 dengan format x1|x2|x3|x4 \n
+        contohnya: 10|11|12|13`
     );   
 });
 
