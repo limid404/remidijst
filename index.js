@@ -49,18 +49,20 @@ bot.on('message', (msg) => {
         let dt = text.split('|');
         bot.sendMessage(
             msg.chat.id, 
-            `prediksi tegangan dan daya dengan arus (${dt[0]} A) dan resistansi (${dt[1]} Ohm) `
+            `prediksi x1 (${dt[0]}), x2 (${dt[1]}), x3 (${dt[2]}), x4 (${dt[3]}), `
         );
 
         model.predict(
             [
                 parseFloat(dt[0]), // string to float
                 parseFloat(dt[1])
+                parseFloat(dt[2])
+                parseFloat(dt[3])
             ]
         ).then((jres) => {
             bot.sendMessage(
                 msg.chat.id, 
-                `nilai v dan p adalah (${jres[0]} volt) dan (${jres[1]} watt)`
+                `nilai y1, y2, y3, y4, y5, dan y6 adalah (${jres[0]}), (${jres[1]}), (${jres[2]}), (${jres[3]}), (${jres[4]}) dan (${jres[5]})`
             );
             bot.sendMessage(
                 msg.chat.id,
